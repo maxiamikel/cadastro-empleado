@@ -11,4 +11,9 @@ public interface PostulantRepository extends JpaRepository<Postulant, String> {
 
     @Query("SELECT p FROM Postulant p")
     List<Postulant> findAllPostulant();
+
+    List<Postulant> findByEmail(String email);
+
+    List<Postulant> findByCpf(String cpf);
+
 }

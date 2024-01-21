@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import com.maxi.cadastroempleadoback.domains.Postulant;
 import com.maxi.cadastroempleadoback.enums.Gender;
 
-public class PostulantCreateDTO {
+public class PostulantDTO {
 
     private String id;
     private String cpf;
@@ -17,11 +17,11 @@ public class PostulantCreateDTO {
     private LocalDate postulationtDate;
     private String area;
 
-    public PostulantCreateDTO() {
+    public PostulantDTO() {
         super();
     }
 
-    public PostulantCreateDTO(Postulant obj) {
+    public PostulantDTO(Postulant obj) {
         this.id = obj.getId();
         this.cpf = obj.getCpf();
         this.name = obj.getName();
