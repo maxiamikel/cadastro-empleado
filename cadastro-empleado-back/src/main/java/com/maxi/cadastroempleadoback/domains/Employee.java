@@ -1,5 +1,6 @@
 package com.maxi.cadastroempleadoback.domains;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import com.maxi.cadastroempleadoback.enums.Department;
@@ -8,14 +9,15 @@ import com.maxi.cadastroempleadoback.enums.Gender;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
 @Entity
 public class Employee extends BaseEntity {
 
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String empId;
     private String post;
 
@@ -25,16 +27,16 @@ public class Employee extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private Department department;
 
-    @ManyToOne
-    @JoinColumn(name = "salary_id", nullable = false)
-    private Salary salary;
+    // @ManyToOne
+    // @JoinColumn(name = "salary_id", nullable = false)
+    private BigDecimal salary;
 
     public Employee() {
         this.hiringDate = LocalDate.now();
     }
 
     public Employee(String cpf, String name, String email, String foneNumber, Gender gender, String empId, String post,
-            LocalDate hiringDate, Department department, Salary salary) {
+            LocalDate hiringDate, Department department, BigDecimal salary) {
         super(cpf, name, email, foneNumber, gender);
         this.empId = empId;
         this.post = post;
@@ -43,8 +45,7 @@ public class Employee extends BaseEntity {
         this.salary = salary;
     }
 
-    public Employee(String empId, String post, LocalDate hiringDate, Department department, Salary salary) {
-        this.empId = empId;
+    public Employee(String post, LocalDate hiringDate, Department department, BigDecimal salary) {
         this.post = post;
         this.hiringDate = hiringDate;
         this.department = department;
@@ -83,11 +84,11 @@ public class Employee extends BaseEntity {
         this.department = department;
     }
 
-    public Salary getSalary() {
+    public BigDecimal getSalary() {
         return salary;
     }
 
-    public void setSalary(Salary salary) {
+    public void setSalary(BigDecimal salary) {
         this.salary = salary;
     }
 

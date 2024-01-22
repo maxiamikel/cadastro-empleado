@@ -10,4 +10,6 @@ public interface PostulantService {
 
     List<PostulantDTO> findAllPostulant();
 
+    Postulant findByIdPostulant(String id);
+
 }

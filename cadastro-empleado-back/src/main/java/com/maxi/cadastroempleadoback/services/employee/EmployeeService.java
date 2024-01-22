@@ -4,5 +4,5 @@ import com.maxi.cadastroempleadoback.domains.Employee;
 import com.maxi.cadastroempleadoback.dtos.employee.EmployeeDTO;
 
 public interface EmployeeService {
-    Employee createNewEmployee(EmployeeDTO obj);
+    public Employee createNewEmployee(EmployeeDTO obj);
 }

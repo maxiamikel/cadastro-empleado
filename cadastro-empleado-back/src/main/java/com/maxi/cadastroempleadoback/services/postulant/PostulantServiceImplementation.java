@@ -2,6 +2,7 @@ package com.maxi.cadastroempleadoback.services.postulant;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,6 +57,12 @@ public class PostulantServiceImplementation implements PostulantService {
     private boolean existsPostulantEmail(String email) {
         List<Postulant> list = postulantRepository.findByEmail(email);
         return list.isEmpty();
+    }
+
+    @Override
+    public Postulant findByIdPostulant(String id) {
+        Optional<Postulant> postulant = postulantRepository.findById(id);
+        return postulant.orElseThrow(() -> new RuntimeException("Postulant id not found"));
     }
 
 }

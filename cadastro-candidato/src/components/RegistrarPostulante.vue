@@ -103,6 +103,11 @@ export default {
 
     .input{
         width: 100%;
-        
+    }
+
+    .buttons{
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 </style>

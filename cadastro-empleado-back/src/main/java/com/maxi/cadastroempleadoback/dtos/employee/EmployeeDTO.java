@@ -1,23 +1,33 @@
 package com.maxi.cadastroempleadoback.dtos.employee;
 
-import com.maxi.cadastroempleadoback.domains.Salary;
+import java.math.BigDecimal;
+
 import com.maxi.cadastroempleadoback.enums.Department;
 
 public class EmployeeDTO {
 
+    private String id;
     private String empId;
     private String post;
     private Department department;
-    private Salary salary;
+    private BigDecimal salary;
 
     public EmployeeDTO() {
     }
 
-    public EmployeeDTO(String empId, String post, Department department, Salary salary) {
-        this.empId = empId;
+    public EmployeeDTO(String id, String post, Department department, BigDecimal salary) {
+        this.id = id;
         this.post = post;
         this.department = department;
         this.salary = salary;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getEmpId() {
@@ -44,11 +54,11 @@ public class EmployeeDTO {
         this.department = department;
     }
 
-    public Salary getSalary() {
+    public BigDecimal getSalary() {
         return salary;
     }
 
-    public void setSalary(Salary salary) {
+    public void setSalary(BigDecimal salary) {
         this.salary = salary;
     }
 

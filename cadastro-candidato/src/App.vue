@@ -29,5 +29,6 @@ import { RouterLink } from 'vue-router';
 .app {
   padding: 10px;
   margin-top: 10px;
+  background: url("./assets/fondo.jpg");
 }
 </style>

@@ -1,14 +1,12 @@
 package com.maxi.cadastroempleadoback.domains;
 
 import java.math.BigDecimal;
-import java.util.List;
 import java.util.UUID;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 
 @Entity
 public class Salary {
@@ -19,16 +17,15 @@ public class Salary {
 
     private BigDecimal amount;
 
-    @OneToMany(mappedBy = "salary")
-    private List<Employee> employees;
+    // @OneToMany(mappedBy = "salary")
+    // private List<Employee> employees;
 
     public Salary() {
         super();
     }
 
-    public Salary(BigDecimal amount, List<Employee> employees) {
+    public Salary(BigDecimal amount) {
         this.amount = amount;
-        this.employees = employees;
     }
 
     public String getId() {
@@ -47,12 +44,12 @@ public class Salary {
         this.amount = amount;
     }
 
-    public List<Employee> getEmployees() {
-        return employees;
-    }
+    // public List<Employee> getEmployees() {
+    // return employees;
+    // }
 
-    public void addEmploye(Employee employee) {
-        this.employees.add(employee);
-    }
+    // public void addEmploye(Employee employee) {
+    // this.employees.add(employee);
+    // }
 
 }
